@@ -1,0 +1,21 @@
+# Catalog submission draft — file as plugin-catalog/proprioception.yaml in a PR
+# to NousResearch/hermes-agent once the repo below is public and the SHA is final.
+# Owner-submitted: the PR author (lEWFkRAD) owns the repo.
+name: proprioception
+repo: https://github.com/lEWFkRAD/hermes-proprioception
+sha: "<40-hex of the final commit — fill at PR time>"
+description: "Agent body-sense — an ephemeral delta heartbeat injected into the current turn
+  when the machine's state materially changes (model backends up/down, gateway health,
+  context fill, long idle gaps), plus a body_state tool for on-demand full readings.
+  Fail-closed: inert until proprioception.enabled: true."
+maintainer: lEWFkRAD
+tier: community
+category: general
+requires_hermes: ">=0.21.7"
+version: "0.1.0"
+docs_url: https://github.com/lEWFkRAD/hermes-proprioception
+capabilities:
+  provides_tools: [body_state]
+  provides_hooks: [pre_llm_call, transform_llm_output, transform_tool_result]
+  provides_middleware: []
+  requires_env: []
