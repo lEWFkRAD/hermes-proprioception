@@ -1,0 +1,21 @@
+[project]
+name = "hermes-proprioception"
+version = "0.1.0"
+description = "Hermes Agent plugin: delta host-telemetry heartbeat + body_state tool (agent proprioception)."
+readme = "README.md"
+requires-python = "<3.14,>=3.11"
+license = { text = "MIT" }
+authors = [{ name = "lEWFkRAD" }]
+# No runtime deps of its own: the plugin rides the Hermes host contract
+# (hermes_cli.config, agent.model_metadata, gateway.status) and stdlib.
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "hermes-agent>=0.19",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

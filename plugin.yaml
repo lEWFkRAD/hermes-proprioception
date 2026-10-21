@@ -1,0 +1,11 @@
+name: proprioception
+version: 0.1.0
+description: "Agent body-sense: a delta heartbeat injected into the current turn when the machine's state materially changes (models up/down, GPU pressure, gateway health, context fill), plus a body_state tool for on-demand full readings. Fail-closed: does nothing unless `proprioception.enabled: true` in config.yaml."
+author: lEWFkRAD
+kind: backend
+provides_tools:
+  - body_state
+provides_hooks:
+  - pre_llm_call
+  - transform_llm_output
+  - transform_tool_result
