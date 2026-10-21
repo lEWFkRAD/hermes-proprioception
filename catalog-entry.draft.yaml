@@ -3,7 +3,7 @@
 # Owner-submitted: the PR author (lEWFkRAD) owns the repo.
 name: proprioception
 repo: https://github.com/lEWFkRAD/hermes-proprioception
-sha: "<40-hex of the final commit — fill at PR time>"
+sha: "e370bfb838699501810511e2e03cfa953c71e01e"
 description: "Agent body-sense — an ephemeral delta heartbeat injected into the current turn
   when the machine's state materially changes (model backends up/down, gateway health,
   context fill, long idle gaps), plus a body_state tool for on-demand full readings.
@@ -14,6 +14,7 @@ category: general
 requires_hermes: ">=0.21.7"
 version: "0.1.0"
 docs_url: https://github.com/lEWFkRAD/hermes-proprioception
+image: https://raw.githubusercontent.com/lEWFkRAD/hermes-proprioception/e370bfb838699501810511e2e03cfa953c71e01e/docs/banner.jpg
 capabilities:
   provides_tools: [body_state]
   provides_hooks: [pre_llm_call, transform_llm_output, transform_tool_result]
