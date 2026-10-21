@@ -34,8 +34,8 @@ import time
 from collections import OrderedDict
 from typing import Any, Dict, List, Optional, Tuple
 
-from plugins.proprioception import collector, senses, tensor
-from plugins.proprioception.collector import ATTENTION_STATES
+from . import collector, senses, tensor
+from .collector import ATTENTION_STATES
 
 logger = logging.getLogger(__name__)
 

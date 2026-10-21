@@ -168,7 +168,7 @@ def scrub(response_text: str) -> tuple[Optional[str], str]:
 def transform_llm_output(**kwargs) -> Optional[str]:
     """``transform_llm_output`` hook. Returns cleaned text, or None to pass through."""
     try:
-        from plugins.proprioception.settings import get_settings
+        from .settings import get_settings
 
         if not get_settings()["enabled"]:
             return None

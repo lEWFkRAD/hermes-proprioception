@@ -118,6 +118,23 @@ import it (package path `plugins.proprioception`). It imports Hermes
 internals (`hermes_cli.config`, `agent.model_metadata`, `gateway.status`),
 so `hermes-agent` must be installed — that is the plugin's host contract.
 
+## Disclosures (what a user should know before installing)
+
+- **Network:** one HTTP GET to your own configured status endpoint
+  (`dashboard_url`, default loopback). No third-party services, no outbound
+  telemetry. The `brain` sense (opt-in) probes only LOCAL model endpoints
+  named in your config — a cloud provider is never probed.
+- **Reads outside its own data:** `gateway_state.json`, `config.yaml`
+  (read-only), and — only if you enable the `staleness` sense — your
+  `memories/MEMORY.md`, to date-stamp remembered facts.
+- **Writes:** its own state/log files under the Hermes home
+  (`proprioception/`, `logs/proprioception-firewall.log`); with
+  `tools/body-schema-gen.py` installed as a scheduled job, one marked block
+  inside `SOUL.md` (timestamped `.bak` rotation, never a git repo).
+- **No self-updating code, no core patching.** It registers hooks and one
+  tool through the public plugin surface and touches nothing else.
+- **Off by default.** Nothing runs until `proprioception.enabled: true`.
+
 ## License
 
 MIT — same terms as Hermes itself.

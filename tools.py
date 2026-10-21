@@ -18,8 +18,8 @@ import json
 import re
 from typing import Any, Dict, List
 
-from plugins.proprioception import collector
-from plugins.proprioception.settings import get_settings, is_enabled
+from . import collector
+from .settings import get_settings, is_enabled
 
 _STATE_ICONS = {
     "ok": "[ok]",
@@ -81,7 +81,7 @@ def _senses_report(settings: Dict[str, Any], kw: Dict[str, Any]) -> str:
     """Full reading of every extended sense, regardless of per-sense flags."""
     import datetime as dt
 
-    from plugins.proprioception import senses
+    from . import senses
 
     ss = dict(settings.get("senses") or senses.sense_settings({}))
     for k in senses.SENSE_KEYS:
@@ -128,7 +128,7 @@ def _senses_report(settings: Dict[str, Any], kw: Dict[str, Any]) -> str:
                    + (f" (oldest {mem['oldest']:%m/%d})" if mem.get("oldest") else "") + f", {mem['undated']} undated")
     notes = obs.get("notes") or []
     if notes:
-        from plugins.proprioception import estimate
+        from . import estimate
 
         out.append(estimate.trust_summary(notes) or "memory trust: no dated notes")
         weakest = sorted((n for n in notes if n["trust"] is not None), key=lambda n: n["trust"])[:5]
@@ -138,7 +138,7 @@ def _senses_report(settings: Dict[str, Any], kw: Dict[str, Any]) -> str:
         try:
             snap = collector.get_snapshot(settings)
             if snap.dashboard:
-                from plugins.proprioception import estimate
+                from . import estimate
 
                 on_path, bg = estimate.rank_alarms(
                     [s for s in snap.dashboard.get("systems") or [] if isinstance(s, dict)],
@@ -147,7 +147,7 @@ def _senses_report(settings: Dict[str, Any], kw: Dict[str, Any]) -> str:
         except Exception:
             pass
     if ss.get("tensor"):
-        from plugins.proprioception import tensor
+        from . import tensor
 
         st = tensor.stats(tensor.db_path(ss))
         if st.get("exists"):

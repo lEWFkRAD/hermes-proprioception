@@ -31,7 +31,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 from urllib.parse import urlparse
 
-from plugins.proprioception import estimate
+from . import estimate
 
 logger = logging.getLogger(__name__)
 

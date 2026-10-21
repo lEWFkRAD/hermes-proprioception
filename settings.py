@@ -111,7 +111,7 @@ def get_settings() -> Dict[str, Any]:
         cfg[numeric_key] = max(floor, value)
     cfg["context_window"] = int(cfg["context_window"])
     try:
-        from plugins.proprioception.senses import sense_settings
+        from .senses import sense_settings
 
         cfg["senses"] = sense_settings(cfg.get("senses"))
     except Exception:

@@ -61,7 +61,7 @@ def features(obs: Dict[str, Any], *, ctx_tokens: int, window: int, snap: Any,
              wall: float, prev_wall: Optional[float], emitted: bool,
              ss: Dict[str, Any]) -> Tuple[Dict[str, float], Dict[str, Tuple[str, str]]]:
     """obs/snapshot -> ({slot: value}, {slot: (kind, label)})."""
-    from plugins.proprioception import estimate
+    from . import estimate
 
     f: Dict[str, float] = {}
     meta: Dict[str, Tuple[str, str]] = {}
@@ -153,7 +153,7 @@ def db_path(ss: Optional[Dict[str, Any]] = None) -> Path:
     custom = (ss or {}).get("tensor_path")
     if custom:
         return Path(custom)
-    from plugins.proprioception.senses import _hermes_home
+    from .senses import _hermes_home
 
     return _hermes_home() / "proprioception" / "tensor.db"
 
