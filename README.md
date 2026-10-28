@@ -1,4 +1,6 @@
 <!-- project-home:start -->
+![hermes-proprioception project banner](https://raw.githubusercontent.com/lEWFkRAD/hermes-proprioception/8b3f0b87c3d14c839a927e88c7a1a5462141c327/docs/banner.jpg)
+
 **[Proprioception project homepage](https://lewfkrad.github.io/hermes-proprioception/)** · [Documentation](https://github.com/lEWFkRAD/hermes-proprioception#install)
 
 Give Hermes a concise reading of its host, with updates when state materially changes.
