@@ -1,3 +1,10 @@
+<!-- project-home:start -->
+**[Proprioception project homepage](https://lewfkrad.github.io/hermes-proprioception/)** · [Documentation](https://github.com/lEWFkRAD/hermes-proprioception#install)
+
+Give Hermes a concise reading of its host, with updates when state materially changes.
+
+<!-- project-home:end -->
+
 # proprioception — a body sense for Hermes Agent
 
 A Hermes plugin that gives the agent *proprioception*: a felt sense of the
